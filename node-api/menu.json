@@ -1,0 +1,38 @@
+[
+    {
+        "name": "X-Bacon",
+        "ingredients": [
+            "Bacon",
+            "Hambúrguer",
+            "Queijo"
+        ],
+        "default_price": 6.50
+    }, 
+    {
+        "name": "X-Burguer",
+        "ingredients": [
+            "Hambúrguer",
+            "Queijo"
+        ],
+        "default_price": 4.50
+    },
+    {
+        "name": "X-Egg",
+        "ingredients": [
+            "Ovo",
+            "Hambúrguer",
+            "Queijo"
+        ],
+        "default_price": 5.30
+    },
+    {
+        "name": "X-Egg Bacon",
+        "ingredients": [
+            "Ovo",
+            "Bacon",
+            "Hambúrguer",
+            "Queijo"
+        ],
+        "default_price": 7.30
+    }
+]
