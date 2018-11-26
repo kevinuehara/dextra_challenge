@@ -1,18 +1,30 @@
 import React from 'react';
 
-const Ingredients = ({ ingredientItens, onClick} ) => {
+const Ingredients = ({ ingredientItens, onClick, format }) => {
 
     var ingredients = "";
 
+    const style = {
+        marginTop: "50px"
+    };
+
     if (ingredientItens.length > 0) {
         ingredients = ingredientItens.map((item, i) => {
+
+            var cartHistory = {
+                "name": item.name,
+                "price": item.price,
+                "ingredients": [],
+                "type": "ingredient"
+            };
+
             return (<div key={i}>
                 <div className="col-sm-12">
                     <div className="card">
                         <div className="card-body">
                             <h5 className="card-title">{item.name}</h5>
-                            <p className="card-text">{numberFormat(item.price)}</p>
-                            <button onClick={() => onClick(item.price)} className="btn btn-primary">Adicionar</button>
+                            <p className="card-text">{format(item.price)}</p>
+                            <button onClick={() => onClick(item.price, item.name, cartHistory)} className="btn btn-primary">Adicionar</button>
                         </div>
                     </div>
                 </div>
@@ -21,7 +33,7 @@ const Ingredients = ({ ingredientItens, onClick} ) => {
         });
     }
 
-    return (<div>
+    return (<div style={style}>
         <h2>Complemente ainda mais lanche!</h2>
         <div className="row">
             {ingredients}
@@ -29,10 +41,5 @@ const Ingredients = ({ ingredientItens, onClick} ) => {
     </div>
     );
 };
-
-var numberFormat = (number) => {
-    var formatted = "R$ " + number.toFixed(2).replace(".", ",");
-    return formatted;
-}
 
 export default Ingredients;
