@@ -22,7 +22,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3500/getMenu")
+        axios.get("http://localhost:8080/getMenu")
             .then(res => {
                 this.setState({ menu: res.data });
             })
@@ -30,7 +30,7 @@ export default class Home extends Component {
                 console.log("Erro ao realizar busca nodeJS para o cardápio: " + error);
             });
 
-        axios.get("http://localhost:3500/getIngredients")
+        axios.get("http://localhost:8080/getIngredients")
             .then(res => {
                 this.setState({ ingredients: res.data });
             })

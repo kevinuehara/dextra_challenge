@@ -3,7 +3,7 @@ var menu = require('./menu.json');
 
 var express = require('express');
 app = express(),
-    port = process.env.PORT || 3500;
+    port = process.env.PORT || 8080;
 
 app.listen(port);
 
