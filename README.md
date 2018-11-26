@@ -143,7 +143,7 @@ Você deve entregar um conjunto de artefatos, de acordo com o nível de complexi
 * Implementar um servidor que retornar os jsons fixos e integrar com o client
 * Instruções para executar (se usar npm, ter os scripts para rodar e buildar no packages.json, ou bash scripts)
 
- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
+![#c5f015](https://placehold.it/15/c5f015/000000?text=+)
 <b>Difícil</b>
 * Implementar front  -- FEITO
 * Implementar um servidor que retornar os jsons fixos e integrar com o client -- FEITO
