@@ -5,6 +5,7 @@ import Menu from './../ui/Menu';
 import Ingredients from './../ui/Ingredients';
 import Price from './../ui/Price';
 import CartButton from './../ui/CartButton';
+import Slider from './../ui/Slider';
 
 export default class Home extends Component {
 
@@ -37,6 +38,16 @@ export default class Home extends Component {
             .catch(error => {
                 console.log("Erro ao realizar busca nodeJS para os ingredientes: " + error);
             });
+    }
+
+    finalizeBurguer = () => {
+        this.setState({
+            totalPrice: 0.0,
+            totalPriceWithDiscount: 0.0,
+            ingredientsUsed: [],
+            cart: [],
+            sale: []
+        });
     }
 
     handleAddCart = (price, ingredients, cartHistory) => {
@@ -204,16 +215,30 @@ export default class Home extends Component {
     }
 
     render() {
+
+        const syleFooter = {
+            float: "right",
+            color: "#505050",
+            marginTop: "50px",
+            marginBottom: "10px"
+        };
+
         return (<div className="container">
             <div className="col-md-12">
-                <CartButton allIngredients={this.state.ingredients} cartAddedIngredients={this.state.ingredientsUsed} cartHistory={this.state.cart} onClick={this.removeFromCart}
-                    totalPrice={this.state.totalPriceWithDiscount} format={this.numberFormat} />
+
+                <div id="headline1" />
+                <Slider />
+                <hr/>
                 <Price totalPriceWithDiscount={this.state.totalPriceWithDiscount} totalPrice={this.state.totalPrice} format={this.numberFormat} sales={this.state.sale} />
+
+                <div id="headline2" />
                 <Menu menuItens={this.state.menu} onClick={this.handleAddCart} format={this.numberFormat} />
                 <hr />
                 <Ingredients ingredientItens={this.state.ingredients} onClick={this.handleAddCart} format={this.numberFormat} />
+                <CartButton allIngredients={this.state.ingredients} cartAddedIngredients={this.state.ingredientsUsed} cartHistory={this.state.cart} onClick={this.removeFromCart}
+                    totalPrice={this.state.totalPriceWithDiscount} format={this.numberFormat} sales={this.state.sale} finalizeEvent={this.finalizeBurguer} />
                 <hr />
-                <br /><br /><br /><br />
+                <span style={syleFooter}>Criado por Kevin Uehara : Desafio Dextra</span>
             </div>
         </div>);
     }

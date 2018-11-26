@@ -1,14 +1,21 @@
 import React from 'react';
 import './../css/Home.css';
 
-const CartButton = ({ allIngredients, cartAddedIngredients, cartHistory, totalPrice, format, onClick }) => {
+const CartButton = ({ allIngredients, cartAddedIngredients, cartHistory,
+    totalPrice, format, onClick, sales, finalizeEvent }) => {
 
     const style = {
-        marginTop: "20px",
+        marginTop: "50px",
     };
 
-    var cartBurguer = "Ainda não foi adicionado nenhum lanche. Escolha um ou faça do zero!"; 
+    var cartBurguer = "Ainda não foi adicionado nenhum lanche. Escolha um ou faça do zero!";
     var cartIngredients = "Ainda não foi feito adicionado nenhum ingrediente. Adicione no seu lanche! ;)";
+
+    var sale = "Nenhuma promoção aplicada";
+
+    if (sales.length > 0) {
+        sale = sales.join(', ');
+    }
 
     if (cartHistory.length > 0) {
 
@@ -50,7 +57,7 @@ const CartButton = ({ allIngredients, cartAddedIngredients, cartHistory, totalPr
         });
     }
 
-    return (<div><button type="button" className="btn btn-info" style={style} data-toggle="modal" data-target="#cartModal">
+    return (<div><button type="button" className="btn btn-primary btn-lg btn-block" style={style} data-toggle="modal" data-target="#cartModal">
         Ver pedido <span className="badge badge-light">{cartHistory.length}</span>
     </button>
 
@@ -71,10 +78,11 @@ const CartButton = ({ allIngredients, cartAddedIngredients, cartHistory, totalPr
                         {cartIngredients}
                         <hr />
                         <h5><b>Total:</b> {format(totalPrice)}</h5>
+                        <h5><b>Promoção:</b>{sale}</h5>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" className="btn btn-primary">Fechar pedido</button>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => finalizeEvent()}>Fechar pedido</button>
                     </div>
                 </div>
             </div>

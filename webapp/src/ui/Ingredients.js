@@ -34,7 +34,7 @@ const Ingredients = ({ ingredientItens, onClick, format }) => {
     }
 
     return (<div style={style}>
-        <h2>Complemente ainda mais lanche!</h2>
+        <h2>Adicione ingredientes!</h2>
         <div className="row">
             {ingredients}
         </div>
